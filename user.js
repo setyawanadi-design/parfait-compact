@@ -15,6 +15,7 @@ user_pref("sidebar.position_start", true);
 /* general */
 user_pref("parfait.animations.enabled", true);
 user_pref("parfait.blur.enabled", false);
+user_pref("parfait.window.borderless", false);
 
 /* background */
 user_pref("parfait.bg.accent-color", false);
@@ -46,9 +47,6 @@ user_pref("parfait.traffic-lights.mono", false);
 user_pref("parfait.urlbar.url.center", false);
 user_pref("parfait.urlbar.results.compact", false);
 user_pref("parfait.urlbar.search-mode.glow", true);
-
-/* window */
-user_pref("parfait.window.borderless", false);
 
 /* new tab */
 user_pref("parfait.new-tab.logo", 1);
