@@ -218,9 +218,16 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
     #urlbar-container + toolbarspring + #downloads-button {
       margin-right: calc(var(--pf-separation) - var(--pf-toolbaritem-gap)) !important;
     }
-    toolbarspring,
     .titlebar-spacer {
       display: none;
+    }
+    &:not([customizing]) toolbarspring {
+      display: none;
+    }
+    :is(toolbarbutton, toolbarpaletteitem) ~ #tabbrowser-tabs {
+      border-inline-start: 0 !important;
+      padding-inline-start: 0 !important;
+      margin-inline-start: 0 !important;
     }
     /* hl: toolbar item positioning */
     @media -moz-pref("parfait.traffic-lights.enabled") or (-moz-platform: macos) {
