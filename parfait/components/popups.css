@@ -35,7 +35,7 @@
 
   .unified-extensions-item {
     background-color: color-mix(in srgb, var(--pf-toolbar-bgcolor), transparent 70%);
-    border-radius: var(--pf-border-radius-md) !important;
+    border-radius: var(--pf-border-radius-sm) !important;
   }
 }
 .unified-extensions-item {
@@ -47,9 +47,9 @@
 }
 .unified-extensions-item-action-button {
   justify-content: center !important;
-  --arrowpanel-menuitem-border-radius: var(--pf-border-radius-md);
+  --arrowpanel-menuitem-border-radius: var(--pf-border-radius-sm);
   --button-background-color-ghost: var(--pf-toolbar-bgcolor);
-  --uei-icon-size: 16px;
+  --uei-icon-size: var(--icon-size);
 }
 .unified-extensions-item-icon,
 .unified-extensions-item .webextension-browser-action.subviewbutton > .toolbarbutton-badge-stack {
