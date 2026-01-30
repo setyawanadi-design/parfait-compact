@@ -193,7 +193,7 @@ panel toolbarseparator {
   .tab-group-editor-swatch {
     --border-radius-medium: 99px;
   }
-  @media not -moz-pref("parfait.tabs.groups.color") {
+  @media -moz-pref("sidebar.verticalTabs") and (not -moz-pref("parfait.tabs.groups.color")) {
     .panel-body.tab-group-editor-swatches {
       display: none !important;
     }
