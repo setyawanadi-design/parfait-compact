@@ -214,6 +214,10 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
     #urlbar-container {
       --urlbar-container-min-width: 200px;
     }
+    #urlbar-container + #downloads-button,
+    #urlbar-container + toolbarspring + #downloads-button {
+      margin-right: calc(var(--pf-separation) - var(--pf-toolbaritem-gap)) !important;
+    }
     toolbarspring,
     .titlebar-spacer {
       display: none;
