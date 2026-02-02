@@ -18,7 +18,7 @@
       @media not -moz-pref("sidebar.visibility", "hide-sidebar") {
         --pf-navbar-margin: 0;
         --pf-navbar-delay: 0s;
-        --pf-bookmarks-margin: calc((var(--pf-tab-height) + (var(--pf-separation) * 2)) + (var(--pf-separation) *  var(--pf-bookmarks-sm)));
+        --pf-bookmarks-margin: calc((var(--pf-tab-height) + (var(--pf-separation) * 2)) + (var(--pf-separation) *  var(--pf-bookmarks-sm, 1)));
       }
       @media -moz-pref("parfait.toolbar.unified-sidebar") and -moz-pref("sidebar.visibility", "hide-sidebar") {
         .browserStack {
@@ -485,7 +485,7 @@ moz-button[view="viewCustomizeSidebar"] { order: 99; }
     #urlbar:not([open]) :is(:hover, :is(#tracking-protection-icon-container, .identity-box-button, .urlbar-page-action, #notification-popup-box)[open])) {
       --pf-fl-sidebar-width: 0px;
       --pf-fl-separation: var(--pf-separation);
-        --pf-fl-sidebar-shadow: var(--pf-sidebar-shadow);
+      --pf-fl-sidebar-shadow: var(--pf-sidebar-shadow);
     }
   }
 }

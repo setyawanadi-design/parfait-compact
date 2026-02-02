@@ -141,12 +141,12 @@
 /* customize menu */
 #customization-panel-container {
   padding-top: var(--pf-separation) !important;
-  padding-right: var(--pf-browser-separation) !important;
+  padding-right: var(--pf-separation) !important;
 }
 .panel-arrowbox {
   display: none !important;
 }
 .panel-arrowcontent {
   border-radius: var(--pf-border-radius-sm) !important;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.075) !important;
+  box-shadow: var(--pf-shadow-md) !important;
 }

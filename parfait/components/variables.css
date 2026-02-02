@@ -31,6 +31,7 @@
   /* corner radii */
   --pf-border-radius-md: 12px;
   --pf-border-radius-sm: 6px;
+  --pf-border-radius-hl: 8px;
   --pf-urlbar-fl-radius: 12px;
   --pf-urlbar-sr-radius: 8px;
   --pf-favicon-radius: 4px;
@@ -89,10 +90,9 @@
   --pf-sidebar-margin: calc(var(--pf-urlbar-height) + var(--pf-separation) - var(--tab-block-margin));
   --pf-navbar-height: calc(var(--pf-toolbaritem-size) + (var(--pf-navbar-padding-block) * 2));
   --pf-navbar-margin: calc(var(--pf-browser-separation) - var(--pf-navbar-height));
-  --pf-bookmarks-margin: calc(var(--pf-sidebar-width) + (var(--pf-separation) * var(--pf-bookmarks-sm)));
+  --pf-bookmarks-margin: calc(var(--pf-sidebar-width) + (var(--pf-separation) * var(--pf-bookmarks-sm, 1)));
 
   /* other */
-  --pf-bookmarks-sm: 1;
   --pf-background-filter: blur(8px);
   --pf-acrylic-filter: blur(72px) brightness(1.6) saturate(1.4);
 
@@ -152,6 +152,11 @@
   @media -moz-pref("parfait.sidebar.width.preset", 4) { --pf-sidebar-width: 280px; }
   @media -moz-pref("parfait.sidebar.width.preset", 5) { --pf-sidebar-width: 300px; }
 
+  /* browser radius */
+  @media (-moz-platform: windows) { --pf-window-radius: 8px; }
+  @media (-moz-platform: macos) { --pf-window-radius: 12px; }
+  @media (-moz-mac-tahoe-theme) { --pf-window-radius: 16px; }
+
   /* preset: roundness */
   @media -moz-pref("parfait.theme.roundness.preset", 1) {
     --pf-border-radius-md: 12px;
@@ -164,14 +169,16 @@
     --pf-border-radius-hl: 6px;
   }
 
-  /* browser radius */
-  @media (-moz-platform: windows) { --pf-window-radius: 8px; --pf-wc-gap: 138px; }
-  @media (-moz-platform: macos) or (-moz-gtk-theme-family: adwaita) or (-moz-gtk-theme-family: yaru) { --pf-window-radius: 12px; }
-  @media (-moz-mac-tahoe-theme) { --pf-window-radius: 16px; }
-
-  /* traffic lights */
-  @media -moz-pref("parfait.traffic-lights.enabled") { --pf-tl-margin: 0px; }
-  @media (-moz-platform: macos) { --pf-tl-margin: -2px; }
+  /* csd */
+  @media (-moz-platform: windows) and (not -moz-pref("parfait.traffic-lights.enabled")) {
+    --pf-wc-gap: 138px;
+  }
+  @media -moz-pref("parfait.traffic-lights.enabled") {
+    --pf-tl-margin: 0px;
+  }
+  @media (-moz-platform: macos) {
+    --pf-tl-margin: -2px;
+  }
   @media (-moz-mac-tahoe-theme) {
     --pf-tl-size: 14px;
     --pf-tl-margin: -8px;
