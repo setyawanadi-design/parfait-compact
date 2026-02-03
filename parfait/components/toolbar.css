@@ -4,7 +4,8 @@
 */
 
 /* toolbar items */
-toolbar .toolbarbutton-1 {
+toolbar .toolbarbutton-1,
+findbar toolbarbutton {
   border-radius: var(--pf-border-radius-sm);
   --toolbarbutton-hover-background: var(--pf-toolbar-bgcolor-hover);
   --toolbarbutton-active-background: var(--pf-toolbar-bgcolor-active);
@@ -231,8 +232,6 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
     }
     /* hl: toolbar item positioning */
     @media -moz-pref("parfait.traffic-lights.enabled") or (-moz-platform: macos) {
-      --pf-wc-gap: 0px;
-
       #nav-bar > .titlebar-buttonbox-container {
         display: flex !important;
       }
