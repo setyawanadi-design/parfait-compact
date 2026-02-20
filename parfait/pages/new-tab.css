@@ -3,7 +3,7 @@
   https://github.com/reizumii/parfait
 */
 
-@-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home) {
+@-moz-document url(about:newtab), url(about:home) {
   :root {
     --pf-accent-color: #bb88ee;
     --pf-bg-blur: blur(64px);
@@ -61,6 +61,10 @@
     visibility: hidden;
   }
   .top-site-outer .tile {
+    backdrop-filter: blur(12px) brightness(1.175) saturate(1.075);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.125), 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    --newtab-background-card: rgba(255, 255, 255, 0.125);
+    --newtab-background-color-secondary: rgba(255, 255, 255, 0.25);
     --size-item-large: 36px;
     --border-radius-large: var(--border-radius-medium);
   }
@@ -68,10 +72,21 @@
     width: 100% !important;
     height: 100% !important;
   }
+  .top-site-outer .tile .top-site-icon::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--border-radius-medium);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.125), inset 0 -1px 0 rgba(34, 34, 34, 0.075), inset 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+  }
   .top-site-outer .tile .top-site-icon:not([style^='background-image: url("moz-page-thumb://']) {
     position: unset !important;
     width: 40px !important;
     height: 40px !important;
+    border-radius: 0 !important;
+  }
+  .top-site-outer .tile .top-site-icon[style^='background-image: url("moz-page-thumb://']::before {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.15), transparent);
   }
   .top-site-outer .title {
     font-family: inherit !important;
@@ -136,7 +151,7 @@
     display: none;
   }
   /* customize menu */
-  .customize-menu {
+  .customize-menu-animate-wrapper {
     width: 450px !important;
     height: fit-content !important;
     top: unset !important;
@@ -154,19 +169,8 @@
     transition-timing-function: cubic-bezier(0.125, 1.125, 0.25, 1.0125) !important;
     overflow: hidden !important;
   }
-  .customize-animate-enter-active > .customize-menu,
-  .customize-animate-enter-done > .customize-menu,
-  .customize-menu.customize-animate-enter-done,
-  .customize-menu.customize-animate-enter-active {
+  .customize-menu-animate-wrapper:is(.customize-animate-enter-active, .customize-animate-enter-done) {
     transform: scale(1) !important;
-  }
-  .customize-menu-animate-wrapper {
-    width: unset !important;
-    height: unset !important;
-    top: unset !important;
-    background-color: transparent !important;
-    box-shadow: none !important;
-    transform: unset !important;
   }
   .personalize-button.personalize-animate-exit-done {
     transform: scale(0);
@@ -230,6 +234,7 @@
     text-align: left !important;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
     color: #fff;
+    pointer-events: none;
   }
   #custom-wallpaper {
     border-style: solid !important;
@@ -329,13 +334,11 @@
   @keyframes modal {
     0% {
       transform: scale(0.75);
-      filter: blur(8px);
-      opacity: 0;
+      filter: blur(8px) opacity(0);
     }
     100% {
       transform: scale(1);
-      filter: blur(0px);
-      opacity: 1;
+      filter: blur(0px) opacity(1);
     }
   }
   .topsite-form .form-input-container {
