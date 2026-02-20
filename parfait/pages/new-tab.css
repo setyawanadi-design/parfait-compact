@@ -9,6 +9,7 @@
     --pf-bg-blur: blur(64px);
     --pf-border-color: light-dark(rgba(21, 21, 21, 0.15), rgba(255, 255, 255, 0.125)) !important;
     --pf-border-color-alt: light-dark(rgba(21, 21, 21, 0.075), rgba(255, 255, 255, 0.075)) !important;
+    --pf-ts-25: 0.25s;
 
     --newtab-background-color-secondary: light-dark(rgba(255, 255, 255, 0.75), rgba(21, 21, 21, 0.7)) !important;
     --newtab-border-color: light-dark(rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.08)) !important;
@@ -17,9 +18,10 @@
     --color-accent-primary: var(--pf-accent-color) !important;
     --color-accent-primary-hover: color-mix(in srgb, var(--pf-accent-color), black 10%) !important;
     --color-accent-primary-active: color-mix(in srgb, var(--pf-accent-color), black 20%) !important;
-
     --border-radius-small: 8px !important;
     --border-radius-medium: 12px !important;
+
+    @media -moz-pref("parfait.animations.enabled", false) or (prefers-reduced-motion: reduce) { --pf-ts-25: 0s; }
   }
   @media (-moz-platform: windows) {
     body {
@@ -49,7 +51,7 @@
     &:hover .tile {
       box-shadow: none !important;
       outline: 6px solid var(--pf-border-color) !important;
-      transition: transform 0.25s;
+      transition: transform var(--pf-ts-25);
     }
     .top-site-button:hover:active .tile {
       transform: scale(0.95);
@@ -146,7 +148,7 @@
     border-radius: var(--border-radius-medium);
     box-shadow: none !important;
     backdrop-filter: var(--pf-bg-blur);
-    transition: transform 250ms;
+    transition: transform var(--pf-ts-25);
     transform: scale(0) !important;
     transform-origin: bottom right;
     transition-timing-function: cubic-bezier(0.125, 1.125, 0.25, 1.0125) !important;
@@ -320,7 +322,7 @@
     border-radius: var(--border-radius-medium) !important;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.125) !important;
     backdrop-filter: var(--pf-bg-blur);
-    animation: modal 0.25s;
+    animation: modal var(--pf-ts-25);
     animation-timing-function: cubic-bezier(0.42, 0, 0, 1);
     transform-origin: top center;
   }
