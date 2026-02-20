@@ -216,6 +216,9 @@
   #urlbar:not([open]) #urlbar-input {
     text-align: center !important;
   }
+  #urlbar:not([open]):not([textoverflow="right"]) .urlbar-input-box {
+    padding-left: 0 !important;
+  }
 }
 /* search icon for new tab extensions */
 #urlbar:not([textoverflow="right"]):has(> hbox > .extensionPage) {
