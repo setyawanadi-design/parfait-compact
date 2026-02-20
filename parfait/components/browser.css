@@ -117,7 +117,7 @@
       --pf-browser-separation: 0px;
     }
     @media -moz-pref("parfait.blur.enabled") {
-      browser:not(.devtools-toolbox-bottom-iframe) { clip-path: inset(0 round 0.01px); }
+      browser:not(.devtools-toolbox-bottom-iframe, .devtools-toolbox-side-iframe) { clip-path: inset(0 round 0.01px); }
     }
   }
   .browserContainer {

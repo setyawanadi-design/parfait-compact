@@ -253,7 +253,6 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
       &:not([customizing]) #unified-extensions-button,
       #wrapper-unified-extensions-button {
         position: fixed;
-        top: var(--pf-navbar-padding-block);
         right: var(--pf-extensions-x);
       }
       #nav-bar-overflow-button {
