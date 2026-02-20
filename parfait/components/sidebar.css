@@ -443,7 +443,7 @@ moz-button[view="viewCustomizeSidebar"] { order: 99; }
     #forward-button,
     #stop-reload-button,
     #vertical-spacer::before,
-    #urlbar-container::before,
+    #vertical-spacer::after,
     #urlbar:not([open], [focused]) {
       transition: all var(--pf-ts-25) var(--pf-fx-sidebar) !important;
     }
@@ -472,7 +472,7 @@ moz-button[view="viewCustomizeSidebar"] { order: 99; }
       left: calc(var(--pf-fl-btn-reload-x) - var(--pf-fl-sidebar-width));
     }
     #urlbar:not([open]),
-    #urlbar-container::before {
+    #vertical-spacer::after {
       --pf-urlbar-x: calc((var(--pf-separation) * 2) - var(--pf-fl-sidebar-width));
       --pf-urlbar-y: calc(var(--pf-navbar-height) + var(--pf-separation));
     }
