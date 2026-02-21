@@ -101,16 +101,21 @@
   }
   /* floating urlbar */
   #urlbar[open] {
-    left: calc(50% - (var(--pf-urlbar-width-max) / 2)) !important;
+    left: var(--pf-urlbar-offset-x) !important;
     top: 25% !important;
     margin: 0 !important;
-    width: 75vw !important;
+    width: 80vw !important;
     max-width: var(--pf-urlbar-width-max) !important;
     transition: none !important;
+    --pf-urlbar-offset-x: calc(50% - (var(--pf-urlbar-width-max) / 2));
     --urlbar-height: 36px !important;
     --urlbar-inner-border-radius: calc(var(--pf-urlbar-sr-radius) - 2px);
     --inactive-titlebar-opacity: 1;
 
+    /* calc: pf-urlbar-width-max / 0.8 = max-width */
+    @media (max-width: 900px) {
+      --pf-urlbar-offset-x: calc(50% - (80vw / 2));
+    }
     .urlbar-background {
       border-radius: var(--pf-urlbar-fl-radius) !important;
       backdrop-filter: var(--pf-urlbar-fl-blur, none);
