@@ -41,6 +41,7 @@
   /* colors */
   --pf-accent-color: AccentColor;
   --pf-accent-text-color: color-mix(in srgb, var(--pf-accent-color), var(--pf-text-color) 30%);
+  --pf-accent-primary-color: color-mix(in srgb, var(--pf-accent-color), light-dark(rgb(96, 96, 96), rgb(34, 34, 34)) 50%);
   --pf-browser-bgcolor-mix: light-dark(white, black);
   --pf-browser-bgcolor: color-mix(in oklab, var(--pf-accent-color), var(--pf-browser-bgcolor-mix) var(--pf-browser-contrast));
   --pf-browser-bgcolor-transparent: light-dark(rgba(255, 255, 255, 0.6), rgba(0, 0, 0, 0.6));
@@ -237,9 +238,10 @@
   --sidebar-box-color: var(--pf-text-color) !important;
 
   &:not([lwtheme]) {
-    --color-accent-primary: var(--pf-accent-text-color) !important;
-    --color-accent-primary-hover: color-mix(in srgb, var(--pf-accent-text-color), black 8%) !important;
-    --color-accent-primary-active: color-mix(in srgb, var(--pf-accent-text-color), black 16%) !important;
+    --color-accent-primary: var(--pf-accent-primary-color) !important;
+    --color-accent-primary-hover: color-mix(in srgb, var(--pf-accent-primary-color), black 8%) !important;
+    --color-accent-primary-active: color-mix(in srgb, var(--pf-accent-primary-color), black 16%) !important;
+    --button-text-color-primary: var(--color-white) !important;
     --link-color: var(--pf-accent-text-color) !important;
     --tab-loading-fill: var(--pf-accent-text-color) !important;
     --toolbarbutton-icon-fill: var(--pf-icon-color) !important;

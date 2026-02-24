@@ -91,7 +91,7 @@
   :root:not([lwtheme]) {
     menu, menuitem {
       &:where([_moz-menuactive]:not([disabled="true"])) {
-        background: color-mix(in srgb, var(--pf-accent-color), black 20%) !important;
+        background: var(--pf-accent-primary-color) !important;
         color: #fff !important;
       }
     }
