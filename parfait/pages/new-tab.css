@@ -25,7 +25,7 @@
     @media -moz-pref("parfait.animations.enabled", false) or (prefers-reduced-motion: reduce) { --pf-ts-25: 0s; }
   }
   @media (-moz-platform: windows) {
-    body {
+    body, .search-handoff-button {
       font-family: "Segoe UI Variable", "Segoe UI", system-ui, sans-serif !important;
     }
   }
@@ -35,13 +35,12 @@
       background-repeat: repeat !important;
     }
   }
-  .search-wrapper .search-handoff-button,
-  .search-wrapper input {
+  .search-handoff-button {
     backdrop-filter: var(--pf-bg-blur);
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.04), 0 2px 16px rgba(0, 0, 0, 0.08) !important;
     border: 1px solid var(--pf-border-color-alt) !important;
     fill-opacity: 0.75;
     -moz-context-properties: fill, fill-opacity !important;
+    --box-shadow-level-3: 0 2px 2px rgba(0, 0, 0, 0.04), 0 2px 16px rgba(0, 0, 0, 0.08) !important;
     --border-radius-medium: 99px !important;
     --newtab-search-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='context-fill' fill-opacity='context-fill-opacity' viewBox='0 0 16 16'%3E%3Cpath d='M7.625 2a5.5 5.5 0 0 1 4.382 8.821l1.648 1.649a.75.75 0 1 1-1.06 1.06l-1.649-1.648A5.5 5.5 0 1 1 7.625 2m0 1.5a4 4 0 1 0 0 8 4 4 0 0 0 0-8'/%3E%3C/svg%3E") !important;
   }
@@ -188,6 +187,7 @@
   }
   .home-section .divider {
     margin-inline: -20px !important;
+    --border-color: var(--pf-border-color);
   }
   .home-section .section .selector {
     font-family: inherit;
@@ -249,22 +249,18 @@
     width: 100% !important;
     height: 100% !important;
     margin: 0 !important;
-    left: 0 !important;
-    transform: translateY(100%) !important;
     backdrop-filter: blur(64px);
     z-index: 2001 !important;
     overflow-y: auto;
-  }
-  .wallpaper-list.category.wallpaper-list-enter-done {
-    transform: translateY(0) !important;
+    --wallpaper-panel-width: 450px !important;
   }
   .wallpaper-list.category fieldset {
-    padding-inline: 20px !important;
+    padding: 0 !important;
     gap: 10px !important;
     grid-auto-rows: 100px !important;
   }
   .arrow-button {
-    margin: 16px !important;
+    margin: 0 0 16px 0 !important;
   }
   /* settings */
   .settings-toggles {
@@ -285,7 +281,7 @@
     }
   }
   .description {
-    --input-space-offset: 52px !important;
+    margin-left: var(--space-medium) !important;
   }
   #settings-link {
     width: calc(100% + 24px);
