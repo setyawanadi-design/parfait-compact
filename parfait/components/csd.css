@@ -59,9 +59,7 @@
       min-width: 12px;
       height: 12px;
       display: block;
-      background-image: var(--pf-tl-button-icon);
-      background-size: 12px;
-      background-position: center;
+      background: var(--pf-tl-button-icon) center / 12px;
       opacity: 0;
     }
     &:-moz-window-inactive {
