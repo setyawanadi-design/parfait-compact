@@ -400,7 +400,7 @@
   }
 }
 /* urlbar icons */
-.urlbar-icon,
+.urlbar-icon:not(#star-button[starred]),
 #identity-box,
 #trust-icon-container,
 #notification-popup-box,
