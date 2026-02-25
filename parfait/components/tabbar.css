@@ -274,6 +274,7 @@ spacer:is([part="overflow-start-indicator"], [part="overflow-end-indicator"]) {
     }
     &[collapsed] > .tabbrowser-tab:not([selected]) {
       display: unset !important;
+      pointer-events: none;
 
       & > .tab-stack {
         max-height: 0;
@@ -289,10 +290,14 @@ spacer:is([part="overflow-start-indicator"], [part="overflow-end-indicator"]) {
     --tab-group-line-thickness: 0;
 
     &[movingtab-addToGroup]:not([movingtab-group], [movingtab-ungroup]) .tabbrowser-tab:is([multiselected], [selected]) > .tab-stack {
-      margin-inline: var(--pf-tab-group-indent-1) var(--tab-inner-inline-margin) !important;
+      margin-inline-start: var(--pf-tab-group-indent-1) !important;
     }
-    &[movingtab]:is([movingtab-addToGroup], [movingtab-ungroup]) .tabbrowser-tab:is([multiselected], [selected]) > .tab-stack {
-      transition: margin-inline var(--pf-ts-15) !important;
+    &[movingtab]:is([movingtab-addToGroup], [movingtab-ungroup]) .tabbrowser-tab:is([multiselected], [selected]) {
+      margin-inline-start: 0 !important;
+
+      & > .tab-stack {
+        transition: margin-inline var(--pf-ts-15) !important;
+      }
     }
   }
   .tab-group-label-container {

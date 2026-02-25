@@ -369,9 +369,6 @@ moz-button[view="viewCustomizeSidebar"] { order: 99; }
       --dragover-tab-group-color: transparent;
       --tab-group-line-color: transparent;
     }
-    tab-group > .tabbrowser-tab {
-      margin-inline-start: var(--pf-tab-group-indent) !important;
-    }
     #tabs-newtab-button,
     #vertical-tabs-newtab-button {
       width: 100% !important;
