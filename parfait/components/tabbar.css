@@ -99,8 +99,8 @@ spacer:is([part="overflow-start-indicator"], [part="overflow-end-indicator"]) {
 }
 .tab-background {
   outline: none !important;
-  --tab-selected-bgcolor: light-dark(rgba(255, 255, 255, 0.8), rgba(238, 239, 243, 0.2));
-  --tab-selected-shadow: 0 0 1px rgba(0, 0, 0, 0.075), 0 1px 1px 1px rgba(0, 0, 0, 0.09);
+  --tab-selected-bgcolor: var(--pf-tab-selected-bgcolor);
+  --tab-selected-shadow: var(--pf-tab-selected-shadow);
   --focus-outline-color: transparent;
   --dragover-tab-group-color: transparent;
 
