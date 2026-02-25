@@ -10,7 +10,7 @@
   --pf-letter-spacing: 0;
 
   @media (-moz-platform: windows) {
-    --pf-font: "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+    --pf-font: "Segoe UI Variable", system-ui, sans-serif;
   }
   @media (-moz-platform: macos) {
     --pf-font: "SF Pro", system-ui, sans-serif;
