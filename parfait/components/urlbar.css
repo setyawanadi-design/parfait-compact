@@ -10,7 +10,7 @@
   --urlbar-height: var(--pf-urlbar-height) !important;
 
   .urlbar-background {
-    border: 0 !important;
+    border: none !important;
     outline: none !important;
     --toolbar-field-background-color: var(--pf-toolbar-bgcolor);
     --toolbarbutton-border-radius: var(--pf-border-radius-md);

@@ -5,15 +5,12 @@
 
 /* top bar */
 @media -moz-pref("sidebar.verticalTabs") {
-  #tabbrowser-tabbox, #sidebar-box, #sidebar-splitter {
-    transition: margin-top var(--pf-ts-25);
-    transition-delay: var(--pf-navbar-delay) !important;
-  }
-  .browserStack {
-    transition: margin-top var(--pf-ts-25) var(--pf-navbar-delay);
-  }
   /* check sidebar state */
   :root:not([chromehidden~="toolbar"], [taskbartab]) {
+    &:not([inDOMFullscreen]) :is(#tabbrowser-tabbox, #sidebar-box, #sidebar-splitter, .browserStack) {
+      transition: margin-top var(--pf-ts-25);
+      transition-delay: var(--pf-navbar-delay) !important;
+    }
     &:has(#tabbrowser-tabs:not([expanded])) {
       @media not -moz-pref("sidebar.visibility", "hide-sidebar") {
         --pf-navbar-margin: 0;
@@ -28,14 +25,12 @@
     }
     @media -moz-pref("sidebar.visibility", "expand-on-hover") {
       --pf-navbar-margin: 0;
+      --pf-sidebar-gutter: 0px;
     }
     @media (not (-moz-platform: macos)) and (not -moz-pref("parfait.traffic-lights.enabled")) {
-      &:has(.titlebar-buttonbox-container:hover) {
+      &:has(.titlebar-buttonbox-container:hover) :is(#tabbrowser-tabbox, #sidebar-box, #sidebar-splitter) {
         --pf-navbar-margin: 0;
-
-        .browserStack {
-          --pf-navbar-margin-reverse: calc(var(--pf-browser-separation) - var(--pf-navbar-height)) !important;
-        }
+        --pf-navbar-margin-reverse: calc(var(--pf-browser-separation) - var(--pf-navbar-height)) !important;
       }
     }
     &:has(#nav-bar toolbarbutton[open]:not(#urlbar-searchmode-switcher), #nav-bar:hover,
@@ -45,17 +40,15 @@
       --pf-navbar-margin-reverse: calc(var(--pf-browser-separation) - var(--pf-navbar-height));
     }
     /* auto hide navbar */
-    @media -moz-pref("parfait.toolbar.unified-sidebar") {
+    @media -moz-pref("parfait.toolbar.unified-sidebar") and (not -moz-pref("sidebar.visibility", "expand-on-hover")) {
       &:not([inDOMFullscreen]):has(:is(.titlebar-buttonbox-container, #urlbar, #sidebar-button, #back-button, #forward-button,
         #stop-reload-button, #vertical-spacer):hover) :is(#tabbrowser-tabbox, #sidebar-box, #sidebar-splitter),
       &:not([inDOMFullscreen]) :is(#tabbrowser-tabbox, #sidebar-box, #sidebar-splitter) {
         margin-top: var(--pf-navbar-margin) !important;
         --pf-navbar-margin-reverse: 0;
       }
-    }
-    &:has(#tabbrowser-tabs[expanded]) {
-      /* seamless top bar */
-      @media -moz-pref("parfait.toolbar.unified-sidebar") and (not -moz-pref("sidebar.visibility", "expand-on-hover")) {
+      &:has(#tabbrowser-tabs[expanded]) {
+        /* seamless top bar */
         .browserStack {
           margin-top: var(--pf-navbar-margin-reverse);
         }
@@ -64,15 +57,10 @@
           --pf-sidebar-btn-margin: calc(var(--pf-sidebar-gutter) - var(--pf-separation));
 
           @media -moz-pref("parfait.traffic-lights.enabled") or (-moz-platform: macos) {
-            &:not([macOSNativeFullscreen]) {
-              --pf-sidebar-btn-margin: var(--pf-sidebar-gutter);
-            }
+            &:not([macOSNativeFullscreen]) { --pf-sidebar-btn-margin: var(--pf-sidebar-gutter); }
           }
         }
       }
-    }
-    @media -moz-pref("sidebar.visibility", "expand-on-hover") {
-      --pf-sidebar-gutter: 0px;
     }
     &:not([customizing]) #nav-bar-customization-target > #sidebar-button:first-child {
       margin-inline-end: var(--pf-sidebar-btn-margin, 0px) !important;
@@ -81,22 +69,19 @@
   }
   /* main sidebar */
   @media -moz-pref("parfait.toolbar.unified-sidebar") {
-    &:has(#tabbrowser-tabs[expanded]) {
-      #sidebar-main {
-        width: var(--pf-sidebar-width) !important;
-        transition: width var(--pf-ts-25), transform var(--pf-ts-25) !important;
+    #sidebar-main[sidebar-launcher-expanded] {
+      width: var(--pf-sidebar-width) !important;
+      transition: width var(--pf-ts-25), transform var(--pf-ts-25) !important;
 
-        #vertical-tabs {
-          width: var(--pf-sidebar-width);
-          -moz-window-dragging: drag;
-        }
-        @media not -moz-pref("sidebar.visibility", "expand-on-hover") { margin-top: var(--pf-sidebar-margin); }
+      #vertical-tabs {
+        width: var(--pf-sidebar-width);
+        -moz-window-dragging: drag;
       }
+      @media not -moz-pref("sidebar.visibility", "expand-on-hover") { margin-top: var(--pf-sidebar-margin); }
     }
     .wrapper { width: 100% !important; }
     #sidebar-launcher-splitter { display: none !important; }
   }
-
   /* sidebar 2 */
   #sidebar-box,
   #sidebar-splitter {

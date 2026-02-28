@@ -82,7 +82,7 @@
     }
     /* floating sidebar */
     @media -moz-pref("sidebar.visibility", "hide-sidebar") {
-      &:has(#tabbrowser-tabs:not([expanded])) #sidebar-main {
+      #sidebar-main:not([sidebar-launcher-expanded]) {
         background: var(--lwt-additional-images), var(--lwt-accent-color) !important;
         background-repeat: var(--lwt-background-tiling) !important;
         background-position: var(--lwt-background-alignment) !important;
