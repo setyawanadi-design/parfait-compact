@@ -10,6 +10,7 @@
 
   /* tabs: horizontal layout */
   &[orient="horizontal"] {
+    --tabstrip-min-height: calc(var(--pf-tab-height) + 2 * var(--tab-block-margin));
     --tab-border-radius: var(--pf-border-radius-hl);
     --tab-block-margin: var(--pf-navbar-padding-block);
     --tab-inline-padding: var(--tab-icon-end-margin) !important;
