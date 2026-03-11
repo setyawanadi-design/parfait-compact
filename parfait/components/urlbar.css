@@ -15,11 +15,15 @@
     --toolbar-field-background-color: var(--pf-toolbar-bgcolor);
     --toolbarbutton-border-radius: var(--pf-border-radius-md);
 
+    @media -moz-pref("parfait.toolbar.separated") {
+      --toolbar-field-background-color: transparent !important;
+    }
+
     #urlbar:not([focused]) & {
       transition: background-color var(--pf-ts-25);
     }
     #urlbar:hover & {
-      --toolbar-field-background-color: var(--pf-toolbar-bgcolor-hover);
+      --toolbar-field-background-color: var(--pf-toolbar-bgcolor-hover) !important;
     }
   }
 }
